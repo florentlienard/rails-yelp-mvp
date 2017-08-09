@@ -1,0 +1,47 @@
+// Specific CSS for your home-page
+.container
+{
+  margin: 0px;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  background: white;
+}
+.container_show
+{
+  margin: 0px;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  background: white;
+}
+h1 {
+  font-weight: bold;
+}
+.products {
+  flex-direction: column;
+  margin: 50px;
+  border-style: solid;
+  border-color: grey;
+  border-radius: 4px;
+  border-width: 1px;
+}
+.product {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+  margin: 10px;
+  padding: 20px;
+}
+.details {
+  font-size: 12px;
+}
+.new-resto {
+  margin: 10px;
+}
+
+.btn {
+  border-radius: 3px;
+  font-family: 'Raleway', sans-serif;
+  margin-top: 20px;
+}

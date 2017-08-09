@@ -1,0 +1,23 @@
+<div class= "container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1 class= "text-center">Restaurants</h1>
+      <div class="products text-center">
+        <% @restaurants.each do |resto| %>
+        <div class="product">
+          <tr>
+            <td><%= resto.name %> - <%= resto.category %></td>
+            <div class='details'>
+              <td> <%= link_to 'More info', restaurant_path(resto) %></td>
+            </div>
+          </div>
+          <%end%>
+          <div class='new-resto'>
+            <td> <%= link_to 'Add a new restaurant', new_restaurant_path %></td>
+          </div>
+        </tr>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

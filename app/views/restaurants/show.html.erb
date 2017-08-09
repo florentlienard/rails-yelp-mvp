@@ -1,0 +1,59 @@
+<div class= "container_show">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1 class= "text-center"><%= @restaurant.name %></h1>
+      <div class="products text-center">
+        <div class="product">
+          <tr>
+            <td><%= @restaurant.phone_number %></td>
+            <div >
+              <p id="address"><%= @restaurant.address %></p>
+            </div>
+            <div >
+              <td><%= @restaurant.category %></td>
+            </div>
+            <div class='details'>
+              <td> <%= link_to 'Back', restaurants_path %></td>
+            </div>
+          </div>
+        </tr>
+        <%= link_to "new review", new_restaurant_review_path(@restaurant) %>
+        <ul>
+          <% @restaurant.reviews.each do |r| %>
+          <td><%= r.content %> <%= "*" * r.rating %></td>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container_show text-center">
+  <div id="map" style="height: 500px">
+  </div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+let address = document.getElementById("address").innerText;
+let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}`;
+fetch(url)
+.then(response => response.json())
+.then((data) => {
+const lat = data.results[0].geometry.location.lat;
+const lng = data.results[0].geometry.location.lng;
+const map = new google.maps.Map(document.getElementById('map'), {
+center: { lat: lat, lng: lng },
+zoom: 14  // Change this value from 0 to 18
+});
+const marker = new google.maps.Marker({
+map: map,
+position: { lat: lat, lng: lng }
+});
+});
+</script>
+<script>
+if(window.location.href.substr(-2) !== "?r") {
+window.location = window.location.href + "?r";
+}
+</script>
